@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>MVC Frame - Admin </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- The styles -->
+    <link href="@Url.Content("~/Charisma/css/bootstrap-classic.css")"  rel="stylesheet"  />
+    <link href="@Url.Content("~/Charisma/css/bootstrap-responsive.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Charisma/css/charisma-app.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Charisma/css/jquery-ui-1.8.21.custom.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Charisma/css/fullcalendar.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Charisma/css/fullcalendar.print.css")" rel='stylesheet' media='print'/>
+    <link href="@Url.Content("~/Charisma/css/chosen.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Charisma/css/uniform.default.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Charisma/css/colorbox.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Charisma/css/jquery.cleditor.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Charisma/css/jquery.noty.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Charisma/css/noty_theme_default.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Charisma/css/elfinder.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Charisma/css/elfinder.theme.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Charisma/css/jquery.iphone.toggle.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Charisma/css/opa-icons.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Charisma/css/uploadify.css")" rel="stylesheet" />
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!---[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- external javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- jQuery -->
+    <script src="@Url.Content("~/Charisma/js/jquery-1.7.2.min.js")"></script>
+    <!-- jQuery UI -->
+    <script src="@Url.Content("~/Charisma/js/jquery-ui-1.8.21.custom.min.js")"></script>
+    <!-- transition / effect library -->
+    <script src="@Url.Content("~/Charisma/js/bootstrap-transition.js")"></script>
+    <!-- alert enhancer library -->
+    <script src="@Url.Content("~/Charisma/js/bootstrap-alert.js")"></script>
+    <!-- modal / dialog library -->
+    <script src="@Url.Content("~/Charisma/js/bootstrap-modal.js")"></script>
+    <!-- custom dropdown library -->
+    <script src="@Url.Content("~/Charisma/js/bootstrap-dropdown.js")"></script>
+    <!-- scrolspy library -->
+    <script src="@Url.Content("~/Charisma/js/bootstrap-scrollspy.js")"></script>
+    <!-- library for creating tabs -->
+    <script src="@Url.Content("~/Charisma/js/bootstrap-tab.js")"></script>
+    <!-- library for advanced tooltip -->
+    <script src="@Url.Content("~/Charisma/js/bootstrap-tooltip.js")"></script>
+    <!-- popover effect library -->
+    <script src="@Url.Content("~/Charisma/js/bootstrap-popover.js")"></script>
+    <!-- button enhancer library -->
+    <script src="@Url.Content("~/Charisma/js/bootstrap-button.js")"></script>
+    <!-- accordion library (optional, not used in demo) -->
+    <script src="@Url.Content("~/Charisma/js/bootstrap-collapse.js")"></script>
+    <!-- carousel slideshow library (optional, not used in demo) -->
+    <script src="@Url.Content("~/Charisma/js/bootstrap-carousel.js")"></script>
+    <!-- autocomplete library -->
+    <script src="@Url.Content("~/Charisma/js/bootstrap-typeahead.js")"></script>
+    <!-- tour library -->
+    <script src="@Url.Content("~/Charisma/js/bootstrap-tour.js")"></script>
+    <!-- library for cookie management -->
+    <script src="@Url.Content("~/Charisma/js/jquery.cookie.js")"></script>
+    <!-- calander plugin -->
+    <script src="@Url.Content("~/Charisma/js/fullcalendar.min.js")"></script>
+    <!-- data table plugin -->
+    <script src="@Url.Content("~/Charisma/js/jquery.dataTables.min.js")"></script>
+    <!-- chart libraries start -->
+    <script src="@Url.Content("~/Charisma/js/excanvas.js")"></script>
+    <script src="@Url.Content("~/Charisma/js/jquery.flot.min.js")"></script>
+    <script src="@Url.Content("~/Charisma/js/jquery.flot.pie.min.js")"></script>
+    <script src="@Url.Content("~/Charisma/js/jquery.flot.stack.js")"></script>
+    <script src="@Url.Content("~/Charisma/js/jquery.flot.resize.min.js")"></script>
+    <!-- chart libraries end -->
+    <!-- select or dropdown enhancer -->
+    <script src="@Url.Content("~/Charisma/js/jquery.chosen.min.js")"></script>
+    <!-- checkbox, radio, and file input styler -->
+    <script src="@Url.Content("~/Charisma/js/jquery.uniform.min.js")"></script>
+    <!-- plugin for gallery image view -->
+    <script src="@Url.Content("~/Charisma/js/jquery.colorbox.min.js")"></script>
+    <!-- rich text editor library -->
+    <script src="@Url.Content("~/Charisma/js/jquery.cleditor.min.js")"></script>
+    <!-- notification plugin -->
+    <script src="@Url.Content("~/Charisma/js/jquery.noty.js")"></script>
+    <!-- file manager library -->
+    <script src="@Url.Content("~/Charisma/js/jquery.elfinder.min.js")"></script>
+    <!-- star rating plugin -->
+    <script src="@Url.Content("~/Charisma/js/jquery.raty.min.js")"></script>
+    <!-- for iOS style toggle switch -->
+    <script src="@Url.Content("~/Charisma/js/jquery.iphone.toggle.js")"></script>
+    <!-- autogrowing textarea plugin -->
+    <script src="@Url.Content("~/Charisma/js/jquery.autogrow-textarea.js")"></script>
+    <!-- multiple file upload plugin -->
+    <script src="@Url.Content("~/Charisma/js/jquery.uploadify-3.1.min.js")"></script>
+    <!-- history.js for cross-browser state change on ajax -->
+    <script src="@Url.Content("~/Charisma/js/jquery.history.js")"></script>
+    <!-- application script for Charisma demo -->
+    <script src="@Url.Content("~/Charisma/js/charisma.js")"></script>
+    <!-- -->
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+</head>
+<body>
+    @Html.Partial("_Top")
+    <!--/.fluid-container-->
+    <div class="container-fluid">
+        <div class="row-fluid">
+            @Html.Partial("_Menu")
+            <div id="content" class="span10">
+                <!-- content starts -->
+                @RenderBody()
+                <!-- content ends -->
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+    </div>
+</body>
+</html>

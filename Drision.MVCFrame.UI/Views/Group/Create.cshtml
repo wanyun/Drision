@@ -1,0 +1,66 @@
+﻿@model Drision.MVCFrame.Model.SysGroup
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>SysGroup</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GroupName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GroupName)
+            @Html.ValidationMessageFor(model => model.GroupName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GroupOrder)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GroupOrder)
+            @Html.ValidationMessageFor(model => model.GroupOrder)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GroupDescription)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GroupDescription)
+            @Html.ValidationMessageFor(model => model.GroupDescription)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GroupType)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GroupType)
+            @Html.ValidationMessageFor(model => model.GroupType)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DelFlag)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DelFlag)
+            @Html.ValidationMessageFor(model => model.DelFlag)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

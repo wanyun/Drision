@@ -41,7 +41,7 @@ namespace Drision.MVCFrame.EFDAL
         //实现对数据库的删除功能
         public bool DeleteEntity(T entity)
         {
-            db.CreateObjectSet<T>().AddObject(entity);
+            db.CreateObjectSet<T>().DeleteObject(entity);
             db.ObjectStateManager.ChangeObjectState(entity, EntityState.Deleted);
             return db.SaveChanges() > 0;
         }

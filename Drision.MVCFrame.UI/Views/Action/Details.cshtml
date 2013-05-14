@@ -1,0 +1,46 @@
+﻿@model Drision.MVCFrame.Model.SysAction
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>SysAction</legend>
+
+    <div class="display-label">RequestUrl</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequestUrl)
+    </div>
+
+    <div class="display-label">RequestHttpType</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequestHttpType)
+    </div>
+
+    <div class="display-label">ActionName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ActionName)
+    </div>
+
+    <div class="display-label">SubTime</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SubTime)
+    </div>
+
+    <div class="display-label">ActionType</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ActionType)
+    </div>
+
+    <div class="display-label">DelFlag</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DelFlag)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ActionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

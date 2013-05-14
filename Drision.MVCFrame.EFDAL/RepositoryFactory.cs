@@ -23,6 +23,20 @@ namespace Drision.MVCFrame.EFDAL
                 return new RoleRepository();
             }
         }
+        public static IActionRepository ActionRepository
+        {
+            get
+            {
+                return new ActionRepository();
+            }
+        }
+        public static IGroupRepository GroupRepository
+        {
+            get
+            {
+                return new GroupRepository();
+            }
+        }
 
     }
 }

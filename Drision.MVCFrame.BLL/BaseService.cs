@@ -31,10 +31,10 @@ namespace Drision.MVCFrame.BLL
         }
 
 
-        //修改
+        //删除
         public bool DeleteEntity(T entity)
         {
-            return false;
+            return CurrentRepository.DeleteEntity(entity); ; 
         }
 
 

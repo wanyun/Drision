@@ -1,22 +1,70 @@
-﻿@{
+﻿@model IEnumerable<Drision.MVCFrame.Model.SysUser>
+
+@{
     ViewBag.Title = "Index";
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>实现用户的增删改查</title>
-    <link href="@Url.Content("../../Content/bootstrap/css/bootstrap-responsive.min.css")" rel="stylesheet" type="text/css" />
-    <link href="@Url.Content("../../Content/bootstrap/css/bootstrap.min.css")" rel="stylesheet" type="text/css" />
-</head>
-<body>
 
-    <div>
-        
-    </div>
+<h2>Index</h2>
 
-    <script src="@Url.Content("../../Scripts/jquery1.9.1.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("../../Content/bootstrap/js/bootstrap.min.js")" type="text/javascript"></script>
-</body>
-</html>
+<p>
+    @Html.ActionLink("Create New", "Register")
+</p>
+<table>
+    <tr>
+        <th>
+            UserName
+        </th>
+        <th>
+            NickName
+        </th>
+        <th>
+            Password
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            CreateTime
+        </th>
+        <th>
+            LastLoginTime
+        </th>
+        <th>
+            DelFlag
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NickName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastLoginTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DelFlag)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UserID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UserID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UserID })
+        </td>
+    </tr>
+}
+
+</table>
