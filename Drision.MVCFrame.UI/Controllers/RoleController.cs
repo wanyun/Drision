@@ -13,7 +13,7 @@ namespace Drision.MVCFrame.UI.Controllers
     {
 
         //实例化需要的对象
-        IRoleService _roleInfoService = new RoleService();
+        ISysRoleService _roleInfoService = new SysRoleService();
 
         //
         // GET: /Role/

@@ -13,7 +13,7 @@ namespace Drision.MVCFrame.UI.Controllers
     {
 
         //实例化需要的对象
-        IUserService _userInfoService = new UserService();
+        ISysUserService _userInfoService = new SysUserService();
         public ActionResult Index()
         {
             var genres = _userInfoService.LoadEntities(n => n.DelFlag == 0);
@@ -32,7 +32,6 @@ namespace Drision.MVCFrame.UI.Controllers
 
             return View();
         }
-
 
         [HttpPost]
         public ActionResult Register(SysUser userinfo)

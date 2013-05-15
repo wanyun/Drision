@@ -8,33 +8,33 @@ namespace Drision.MVCFrame.EFDAL
     public class RepositoryFactory
     {
 
-        public static IUserRepository UserRepository
+        public static ISysUserRepository UserRepository
         {
             get
             {
-                return new UserRepository();
+                return new SysUserRepository();
             }
         }
 
-        public static IRoleRepository RoleRepository
+        public static ISysRoleRepository RoleRepository
         {
             get
             {
-                return new RoleRepository();
+                return new SysRoleRepository();
             }
         }
-        public static IActionRepository ActionRepository
+        public static ISysActionRepository ActionRepository
         {
             get
             {
-                return new ActionRepository();
+                return new SysActionRepository();
             }
         }
-        public static IGroupRepository GroupRepository
+        public static ISysGroupRepository GroupRepository
         {
             get
             {
-                return new GroupRepository();
+                return new SysGroupRepository();
             }
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace Drision.MVCFrame.IDAL
 {
@@ -28,8 +29,7 @@ namespace Drision.MVCFrame.IDAL
 
 
         //分页
-        IQueryable<T> LoadPageEntities<S>(int pageSize, int pageIndex,
-            out int total, Func<T, bool> whereLambda, bool isAsc, Func<T, S> orderByLambda);
+        IQueryable<T> LoadPageEntities<S>(int pageIndex, int pageSize, out int total, Expression<Func<T, bool>> whereLambda, bool isAsc, Expression<Func<T, S>> orderByLambda);
 
     }
 }

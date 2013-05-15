@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Linq.Expressions;
 
 namespace Drision.MVCFrame.IBLL
 {
@@ -32,7 +33,7 @@ namespace Drision.MVCFrame.IBLL
         /// <param name="isAsc">如何排序，根据倒叙还是升序</param>
         /// <param name="orderByLambda">根据那个字段进行排序</param>
         /// <returns></returns>
-        IQueryable<T> LoadPageEntities<S>(int pageIndex, int pageSize, out int total, Func<T, bool> whereLambda,bool isAsc, Func<T, S> orderByLambda);
+        IQueryable<T> LoadPageEntities<S>(int pageIndex, int pageSize, out int total, Expression<Func<T, bool>> whereLambda, bool isAsc, Expression<Func<T, S>> orderByLambda);
 
     }
 

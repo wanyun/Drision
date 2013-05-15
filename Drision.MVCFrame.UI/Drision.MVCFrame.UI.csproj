@@ -68,6 +68,7 @@
     <Compile Include="Controllers\ActionController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -335,7 +336,117 @@
     <Content Include="Content\bootstrap\img\glyphicons-halflings.png" />
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Images\aiwrap.png" />
+    <Content Include="Content\Images\key.png" />
+    <Content Include="Content\Images\loading.gif" />
     <Content Include="Content\Images\logo.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\asyncData\demoData.js" />
+    <Content Include="Content\JQuery zTree v2.6\demo\asyncData\fun1.txt" />
+    <Content Include="Content\JQuery zTree v2.6\demo\asyncData\fun2.txt" />
+    <Content Include="Content\JQuery zTree v2.6\demo\asyncData\node.txt" />
+    <Content Include="Content\JQuery zTree v2.6\demo\asyncDemo.html" />
+    <Content Include="Content\JQuery zTree v2.6\demo\bigDataDemo_normal.html" />
+    <Content Include="Content\JQuery zTree v2.6\demo\bigDataDemo_super.html" />
+    <Content Include="Content\JQuery zTree v2.6\demo\checkboxDemo.html" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\demo.css" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\addNode.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\books.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\btn1.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\btn2.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\btn3.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\btn4.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\checkNode.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\collapseNode.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\down.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\download.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\expandNode.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\hardware.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\home.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\left.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\moveNode.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\moveNodeR.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\people.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\phone.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\refresh.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\removeNode.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\right.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\safari.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\searchNode.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\skin.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\star.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\unCheckNode.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\up.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoStyle\img\zTreeDemo_background.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\demoTools.js" />
+    <Content Include="Content\JQuery zTree v2.6\demo\edit&amp;asyncDemo.html" />
+    <Content Include="Content\JQuery zTree v2.6\demo\editDemo.html" />
+    <Content Include="Content\JQuery zTree v2.6\demo\eventDemo.html" />
+    <Content Include="Content\JQuery zTree v2.6\demo\index.html" />
+    <Content Include="Content\JQuery zTree v2.6\demo\jquery-1.4.2.js" />
+    <Content Include="Content\JQuery zTree v2.6\demo\jquery.ztree-2.6.js" />
+    <Content Include="Content\JQuery zTree v2.6\demo\jquery.ztree-2.6.min.js" />
+    <Content Include="Content\JQuery zTree v2.6\demo\jscontrolDemo.html" />
+    <Content Include="Content\JQuery zTree v2.6\demo\radioDemo.html" />
+    <Content Include="Content\JQuery zTree v2.6\demo\skinDemo.html" />
+    <Content Include="Content\JQuery zTree v2.6\demo\skinDemo24.html" />
+    <Content Include="Content\JQuery zTree v2.6\demo\standardDemo.html" />
+    <Content Include="Content\JQuery zTree v2.6\demo\standardDemoForIe6.html" />
+    <Content Include="Content\JQuery zTree v2.6\demo\superDemo_check&amp;radio.html" />
+    <Content Include="Content\JQuery zTree v2.6\demo\superDemo_diyBtn.html" />
+    <Content Include="Content\JQuery zTree v2.6\demo\superDemo_dropdownMenu.html" />
+    <Content Include="Content\JQuery zTree v2.6\demo\superDemo_mutilTree.html" />
+    <Content Include="Content\JQuery zTree v2.6\demo\superDemo_rightMenu.html" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\checkbox.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\edit.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\flag\10.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\flag\1_close.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\flag\1_open.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\flag\2.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\flag\3.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\flag\4.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\flag\5.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\flag\6.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\flag\7.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\flag\8.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\flag\9.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\folder_Close.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\folder_Open.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\line_bottom.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\line_center.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\line_conn.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\line_top.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\loading.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\minus_bottom.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\minus_center.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\minus_noLine.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\minus_root.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\minus_top.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\moveArrow.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\page.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\plus_bottom.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\plus_center.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\plus_noLine.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\plus_root.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\plus_top.gif" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\radio.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\remove.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\sim\10.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\sim\1_close.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\sim\1_open.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\sim\2.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\sim\3.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\sim\4.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\sim\5.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\sim\6.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\sim\7.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\sim\8.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\img\sim\9.png" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\zTreeIcons.css" />
+    <Content Include="Content\JQuery zTree v2.6\demo\zTreeStyle\zTreeStyle.css" />
+    <Content Include="Content\JQuery zTree v2.6\jquery-1.4.2.js" />
+    <Content Include="Content\JQuery zTree v2.6\jquery.ztree-2.6.js" />
+    <Content Include="Content\JQuery zTree v2.6\jquery.ztree-2.6.min.js" />
+    <Content Include="Content\styles.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -417,6 +528,10 @@
       <Project>{26CB8B13-816D-4718-A13C-E77082E5A9D8}</Project>
       <Name>Drision.MVCFrame.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Drision.MVCFrame.Common\Drision.MVCFrame.Common.csproj">
+      <Project>{163C3CEE-7EAD-4607-8927-EDFC9D9EE87A}</Project>
+      <Name>Drision.MVCFrame.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Drision.MVCFrame.IBLL\Drision.MVCFrame.IBLL.csproj">
       <Project>{2DE61AE8-9F6E-46A5-B514-80EE9DB9256C}</Project>
       <Name>Drision.MVCFrame.IBLL</Name>
@@ -479,6 +594,13 @@
     <Content Include="Views\Group\Create.cshtml" />
     <Content Include="Views\Group\Edit.cshtml" />
     <Content Include="Views\Group\Delete.cshtml" />
+    <None Include="Content\JQuery zTree v2.6\demo\asyncData\node.jsp" />
+    <None Include="Content\JQuery zTree v2.6\demo\asyncData\node.php" />
+    <None Include="Content\JQuery zTree v2.6\demo\asyncData\nodeForBigData.jsp" />
+    <None Include="Content\JQuery zTree v2.6\demo\asyncData\nodeForBigData.php" />
+    <None Include="Content\JQuery zTree v2.6\demo\asyncData\nodeForHugeData.jsp" />
+    <None Include="Content\JQuery zTree v2.6\demo\asyncData\nodeForHugeData.php" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -497,7 +619,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>28911</DevelopmentServerPort>
+          <DevelopmentServerPort>9109</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -12,7 +12,7 @@ namespace Drision.MVCFrame.UI.Controllers
     public class GroupController : Controller
     {
         //实例化需要的对象
-        IGroupService _groupInfoService = new GroupService();
+        ISysGroupService _groupInfoService = new SysGroupService();
 
         //
         // GET: /Role/

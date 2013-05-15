@@ -12,7 +12,7 @@ namespace Drision.MVCFrame.UI.Controllers
     public class ActionController : Controller
     {
         //实例化需要的对象
-        IActionService _userRoleInfoService = new ActionService();
+        ISysActionService _userRoleInfoService = new SysActionService();
 
         //
         // GET: /Role/

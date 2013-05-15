@@ -1,0 +1,45 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ include file="EF.Utility.CS.ttinclude"#>  
+<#@ output extension=".cs" #>
+
+<# 
+	CodeGenerationTools code = new CodeGenerationTools(this);
+	MetadataLoader loader = new MetadataLoader(this);
+	CodeRegion region = new CodeRegion(this, 1);
+	MetadataTools ef = new MetadataTools(this);
+	string inputFile = this.Host.ResolvePath(@"..\\Drision.MVCFrame.Model\\DataModel.edmx");
+	EdmItemCollection ItemCollection = loader.CreateEdmItemCollection(inputFile);
+	string namespaceName = code.VsNamespaceSuggestion();
+	EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileManager.Create(this);
+
+#>
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Drision.MVCFrame.EFDAL;
+using Drision.MVCFrame.Model;
+using Drision.MVCFrame.IBLL;
+
+namespace Drision.MVCFrame.BLL
+{
+
+<#
+    //使用foreach循环遍历ItemCollection.GetItems<EntityType>集合
+    foreach(EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e=>e.Name))
+    { #>
+        public partial class <#=entity.Name#>Service : BaseService<<#=entity.Name#>>, I<#=entity.Name#>Service
+		{
+			//重写抽象方法，设置当前仓储为<#=entity.Name#>仓储
+			public override void SetCurrentRepository()
+			{
+				CurrentRepository = _DbSession.<#=entity.Name#>Repository;
+			}
+
+		}
+
+	<#}#>
+
+}

@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Drision.MVCFrame.Model;
 using Drision.MVCFrame.IDAL;
+using System.Data.Objects;
+using System.Linq.Expressions;
 
 
 namespace Drision.MVCFrame.EFDAL
@@ -16,7 +18,8 @@ namespace Drision.MVCFrame.EFDAL
 
         //实例化EF框架
         //获取的实当前线程内部的上下文实例，而且保证了线程内上下文实例唯一
-        private DrisionMVCFrameEntities db = new DrisionMVCFrameEntities();
+       // private DrisionMVCFrameEntities db = new DrisionMVCFrameEntities();
+        private ObjectContext db = EFContextFactory.GetCurrentDbContext();
 
         // 实现对数据库的添加功能
         public T AddEntity(T entity)
@@ -69,7 +72,7 @@ namespace Drision.MVCFrame.EFDAL
         /// <param name="orderByLambda">根据那个字段进行排序</param>
         /// <returns></returns>
 
-        public IQueryable<T> LoadPageEntities<S>(int pageIndex, int pageSize, out  int total, Func<T, bool> whereLambda,bool isAsc, Func<T, S> orderByLambda)
+        public IQueryable<T> LoadPageEntities<S>(int pageIndex, int pageSize, out int total, Expression<Func<T, bool>> whereLambda, bool isAsc, Expression<Func<T, S>> orderByLambda)
         {
             var temp = db.CreateObjectSet<T>().Where<T>(whereLambda);
 
