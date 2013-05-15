@@ -14,6 +14,7 @@ namespace Drision.MVCFrame.UI.Controllers
 
         //实例化需要的对象
         ISysUserService _userInfoService = new SysUserService();
+
         public ActionResult Index()
         {
             var genres = _userInfoService.LoadEntities(n => n.DelFlag == 0);

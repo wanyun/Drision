@@ -14,47 +14,47 @@ using Drision.MVCFrame.Model;
 namespace Drision.MVCFrame.IDAL
 {
 
-        public interface ISys_R_Group_ActionRepository : IBaseRepository<Sys_R_Group_Action>
+        public partial interface ISys_R_Group_ActionRepository : IBaseRepository<Sys_R_Group_Action>
 		{
 
 		}
 
-	        public interface ISys_R_Role_ActionRepository : IBaseRepository<Sys_R_Role_Action>
+	        public partial interface ISys_R_Role_ActionRepository : IBaseRepository<Sys_R_Role_Action>
 		{
 
 		}
 
-	        public interface ISys_R_User_ActionRepository : IBaseRepository<Sys_R_User_Action>
+	        public partial interface ISys_R_User_ActionRepository : IBaseRepository<Sys_R_User_Action>
 		{
 
 		}
 
-	        public interface ISys_R_User_GroupRepository : IBaseRepository<Sys_R_User_Group>
+	        public partial interface ISys_R_User_GroupRepository : IBaseRepository<Sys_R_User_Group>
 		{
 
 		}
 
-	        public interface ISys_R_User_RoleRepository : IBaseRepository<Sys_R_User_Role>
+	        public partial interface ISys_R_User_RoleRepository : IBaseRepository<Sys_R_User_Role>
 		{
 
 		}
 
-	        public interface ISysActionRepository : IBaseRepository<SysAction>
+	        public partial interface ISysActionRepository : IBaseRepository<SysAction>
 		{
 
 		}
 
-	        public interface ISysGroupRepository : IBaseRepository<SysGroup>
+	        public partial interface ISysGroupRepository : IBaseRepository<SysGroup>
 		{
 
 		}
 
-	        public interface ISysRoleRepository : IBaseRepository<SysRole>
+	        public partial interface ISysRoleRepository : IBaseRepository<SysRole>
 		{
 
 		}
 
-	        public interface ISysUserRepository : IBaseRepository<SysUser>
+	        public partial interface ISysUserRepository : IBaseRepository<SysUser>
 		{
 
 		}

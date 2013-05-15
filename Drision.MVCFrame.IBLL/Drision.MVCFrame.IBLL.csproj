@@ -47,6 +47,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
+    <Compile Include="ISysUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

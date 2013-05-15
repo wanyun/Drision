@@ -31,7 +31,7 @@ namespace Drision.MVCFrame.IDAL
     //使用foreach循环遍历ItemCollection.GetItems<EntityType>集合
     foreach(EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e=>e.Name))
     { #>
-        public interface I<#=entity.Name#>Repository : IBaseRepository<<#=entity.Name#>>
+        public partial interface I<#=entity.Name#>Repository : IBaseRepository<<#=entity.Name#>>
 		{
 
 		}
