@@ -13,17 +13,7 @@ using Drision.MVCFrame.IBLL;
 namespace Drision.MVCFrame.BLL
 {
 
-        public partial class Sys_R_Group_ActionService : BaseService<Sys_R_Group_Action>, ISys_R_Group_ActionService
-		{
-			//重写抽象方法，设置当前仓储为Sys_R_Group_Action仓储
-			public override void SetCurrentRepository()
-			{
-				CurrentRepository = _DbSession.Sys_R_Group_ActionRepository;
-			}
-
-		}
-
-	        public partial class Sys_R_Role_ActionService : BaseService<Sys_R_Role_Action>, ISys_R_Role_ActionService
+        public partial class Sys_R_Role_ActionService : BaseService<Sys_R_Role_Action>, ISys_R_Role_ActionService
 		{
 			//重写抽象方法，设置当前仓储为Sys_R_Role_Action仓储
 			public override void SetCurrentRepository()
@@ -39,16 +29,6 @@ namespace Drision.MVCFrame.BLL
 			public override void SetCurrentRepository()
 			{
 				CurrentRepository = _DbSession.Sys_R_User_ActionRepository;
-			}
-
-		}
-
-	        public partial class Sys_R_User_GroupService : BaseService<Sys_R_User_Group>, ISys_R_User_GroupService
-		{
-			//重写抽象方法，设置当前仓储为Sys_R_User_Group仓储
-			public override void SetCurrentRepository()
-			{
-				CurrentRepository = _DbSession.Sys_R_User_GroupRepository;
 			}
 
 		}

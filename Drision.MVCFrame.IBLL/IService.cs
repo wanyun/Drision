@@ -11,22 +11,12 @@ using Drision.MVCFrame.Model;
 namespace Drision.MVCFrame.IBLL
 {
 
-        public partial  interface ISys_R_Group_ActionService : IBaseService<Sys_R_Group_Action>
-		{
-
-		}
-
-	        public partial  interface ISys_R_Role_ActionService : IBaseService<Sys_R_Role_Action>
+        public partial  interface ISys_R_Role_ActionService : IBaseService<Sys_R_Role_Action>
 		{
 
 		}
 
 	        public partial  interface ISys_R_User_ActionService : IBaseService<Sys_R_User_Action>
-		{
-
-		}
-
-	        public partial  interface ISys_R_User_GroupService : IBaseService<Sys_R_User_Group>
 		{
 
 		}

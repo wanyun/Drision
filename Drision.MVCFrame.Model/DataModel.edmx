@@ -6,23 +6,13 @@
     <edmx:StorageModels>
       <Schema Namespace="DrisionMVCFrameModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="DrisionMVCFrameModelStoreContainer">
-          <EntitySet Name="Sys_R_Group_Action" EntityType="DrisionMVCFrameModel.Store.Sys_R_Group_Action" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Sys_R_Role_Action" EntityType="DrisionMVCFrameModel.Store.Sys_R_Role_Action" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Sys_R_User_Action" EntityType="DrisionMVCFrameModel.Store.Sys_R_User_Action" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Sys_R_User_Group" EntityType="DrisionMVCFrameModel.Store.Sys_R_User_Group" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Sys_R_User_Role" EntityType="DrisionMVCFrameModel.Store.Sys_R_User_Role" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SysAction" EntityType="DrisionMVCFrameModel.Store.SysAction" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SysGroup" EntityType="DrisionMVCFrameModel.Store.SysGroup" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SysRole" EntityType="DrisionMVCFrameModel.Store.SysRole" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SysUser" EntityType="DrisionMVCFrameModel.Store.SysUser" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_Sys_R_Group_Action_SysAction" Association="DrisionMVCFrameModel.Store.FK_Sys_R_Group_Action_SysAction">
-            <End Role="SysAction" EntitySet="SysAction" />
-            <End Role="Sys_R_Group_Action" EntitySet="Sys_R_Group_Action" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sys_R_Group_Action_SysGroup" Association="DrisionMVCFrameModel.Store.FK_Sys_R_Group_Action_SysGroup">
-            <End Role="SysGroup" EntitySet="SysGroup" />
-            <End Role="Sys_R_Group_Action" EntitySet="Sys_R_Group_Action" />
-          </AssociationSet>
           <AssociationSet Name="FK_Sys_R_Role_Action_SysAction" Association="DrisionMVCFrameModel.Store.FK_Sys_R_Role_Action_SysAction">
             <End Role="SysAction" EntitySet="SysAction" />
             <End Role="Sys_R_Role_Action" EntitySet="Sys_R_Role_Action" />
@@ -39,14 +29,6 @@
             <End Role="SysUser" EntitySet="SysUser" />
             <End Role="Sys_R_User_Action" EntitySet="Sys_R_User_Action" />
           </AssociationSet>
-          <AssociationSet Name="FK_Sys_R_User_Group_SysGroup" Association="DrisionMVCFrameModel.Store.FK_Sys_R_User_Group_SysGroup">
-            <End Role="SysGroup" EntitySet="SysGroup" />
-            <End Role="Sys_R_User_Group" EntitySet="Sys_R_User_Group" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sys_R_User_Group_SysUser" Association="DrisionMVCFrameModel.Store.FK_Sys_R_User_Group_SysUser">
-            <End Role="SysUser" EntitySet="SysUser" />
-            <End Role="Sys_R_User_Group" EntitySet="Sys_R_User_Group" />
-          </AssociationSet>
           <AssociationSet Name="FK_Sys_R_User_Role_SysRole" Association="DrisionMVCFrameModel.Store.FK_Sys_R_User_Role_SysRole">
             <End Role="SysRole" EntitySet="SysRole" />
             <End Role="Sys_R_User_Role" EntitySet="Sys_R_User_Role" />
@@ -56,14 +38,6 @@
             <End Role="Sys_R_User_Role" EntitySet="Sys_R_User_Role" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Sys_R_Group_Action">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="GroupID" Type="int" Nullable="false" />
-          <Property Name="ActionID" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="Sys_R_Role_Action">
           <Key>
             <PropertyRef Name="ID" />
@@ -79,14 +53,6 @@
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="ActionID" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Sys_R_User_Group">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="UserID" Type="int" Nullable="false" />
-          <Property Name="GroupID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Sys_R_User_Role">
           <Key>
@@ -142,30 +108,6 @@
           <Property Name="LastLoginTime" Type="datetime" />
           <Property Name="DelFlag" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Sys_R_Group_Action_SysAction">
-          <End Role="SysAction" Type="DrisionMVCFrameModel.Store.SysAction" Multiplicity="1" />
-          <End Role="Sys_R_Group_Action" Type="DrisionMVCFrameModel.Store.Sys_R_Group_Action" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SysAction">
-              <PropertyRef Name="ActionID" />
-            </Principal>
-            <Dependent Role="Sys_R_Group_Action">
-              <PropertyRef Name="ActionID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sys_R_Group_Action_SysGroup">
-          <End Role="SysGroup" Type="DrisionMVCFrameModel.Store.SysGroup" Multiplicity="1" />
-          <End Role="Sys_R_Group_Action" Type="DrisionMVCFrameModel.Store.Sys_R_Group_Action" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SysGroup">
-              <PropertyRef Name="GroupID" />
-            </Principal>
-            <Dependent Role="Sys_R_Group_Action">
-              <PropertyRef Name="GroupID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Sys_R_Role_Action_SysAction">
           <End Role="SysAction" Type="DrisionMVCFrameModel.Store.SysAction" Multiplicity="1" />
           <End Role="Sys_R_Role_Action" Type="DrisionMVCFrameModel.Store.Sys_R_Role_Action" Multiplicity="*" />
@@ -210,30 +152,6 @@
               <PropertyRef Name="UserID" />
             </Principal>
             <Dependent Role="Sys_R_User_Action">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sys_R_User_Group_SysGroup">
-          <End Role="SysGroup" Type="DrisionMVCFrameModel.Store.SysGroup" Multiplicity="1" />
-          <End Role="Sys_R_User_Group" Type="DrisionMVCFrameModel.Store.Sys_R_User_Group" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SysGroup">
-              <PropertyRef Name="GroupID" />
-            </Principal>
-            <Dependent Role="Sys_R_User_Group">
-              <PropertyRef Name="GroupID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sys_R_User_Group_SysUser">
-          <End Role="SysUser" Type="DrisionMVCFrameModel.Store.SysUser" Multiplicity="1" />
-          <End Role="Sys_R_User_Group" Type="DrisionMVCFrameModel.Store.Sys_R_User_Group" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SysUser">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="Sys_R_User_Group">
               <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
@@ -299,23 +217,13 @@
     <edmx:ConceptualModels>
       <Schema Namespace="DrisionMVCFrameModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="DrisionMVCFrameEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Sys_R_Group_Action" EntityType="DrisionMVCFrameModel.Sys_R_Group_Action" />
           <EntitySet Name="Sys_R_Role_Action" EntityType="DrisionMVCFrameModel.Sys_R_Role_Action" />
           <EntitySet Name="Sys_R_User_Action" EntityType="DrisionMVCFrameModel.Sys_R_User_Action" />
-          <EntitySet Name="Sys_R_User_Group" EntityType="DrisionMVCFrameModel.Sys_R_User_Group" />
           <EntitySet Name="Sys_R_User_Role" EntityType="DrisionMVCFrameModel.Sys_R_User_Role" />
           <EntitySet Name="SysAction" EntityType="DrisionMVCFrameModel.SysAction" />
           <EntitySet Name="SysGroup" EntityType="DrisionMVCFrameModel.SysGroup" />
           <EntitySet Name="SysRole" EntityType="DrisionMVCFrameModel.SysRole" />
           <EntitySet Name="SysUser" EntityType="DrisionMVCFrameModel.SysUser" />
-          <AssociationSet Name="FK_Sys_R_Group_Action_SysAction" Association="DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysAction">
-            <End Role="SysAction" EntitySet="SysAction" />
-            <End Role="Sys_R_Group_Action" EntitySet="Sys_R_Group_Action" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sys_R_Group_Action_SysGroup" Association="DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysGroup">
-            <End Role="SysGroup" EntitySet="SysGroup" />
-            <End Role="Sys_R_Group_Action" EntitySet="Sys_R_Group_Action" />
-          </AssociationSet>
           <AssociationSet Name="FK_Sys_R_Role_Action_SysAction" Association="DrisionMVCFrameModel.FK_Sys_R_Role_Action_SysAction">
             <End Role="SysAction" EntitySet="SysAction" />
             <End Role="Sys_R_Role_Action" EntitySet="Sys_R_Role_Action" />
@@ -332,14 +240,6 @@
             <End Role="SysUser" EntitySet="SysUser" />
             <End Role="Sys_R_User_Action" EntitySet="Sys_R_User_Action" />
           </AssociationSet>
-          <AssociationSet Name="FK_Sys_R_User_Group_SysGroup" Association="DrisionMVCFrameModel.FK_Sys_R_User_Group_SysGroup">
-            <End Role="SysGroup" EntitySet="SysGroup" />
-            <End Role="Sys_R_User_Group" EntitySet="Sys_R_User_Group" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sys_R_User_Group_SysUser" Association="DrisionMVCFrameModel.FK_Sys_R_User_Group_SysUser">
-            <End Role="SysUser" EntitySet="SysUser" />
-            <End Role="Sys_R_User_Group" EntitySet="Sys_R_User_Group" />
-          </AssociationSet>
           <AssociationSet Name="FK_Sys_R_User_Role_SysRole" Association="DrisionMVCFrameModel.FK_Sys_R_User_Role_SysRole">
             <End Role="SysRole" EntitySet="SysRole" />
             <End Role="Sys_R_User_Role" EntitySet="Sys_R_User_Role" />
@@ -349,16 +249,6 @@
             <End Role="Sys_R_User_Role" EntitySet="Sys_R_User_Role" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Sys_R_Group_Action">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GroupID" Type="Int32" Nullable="false" />
-          <Property Name="ActionID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="SysAction" Relationship="DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysAction" FromRole="Sys_R_Group_Action" ToRole="SysAction" />
-          <NavigationProperty Name="SysGroup" Relationship="DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysGroup" FromRole="Sys_R_Group_Action" ToRole="SysGroup" />
-        </EntityType>
         <EntityType Name="Sys_R_Role_Action">
           <Key>
             <PropertyRef Name="ID" />
@@ -378,16 +268,6 @@
           <Property Name="ActionID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="SysAction" Relationship="DrisionMVCFrameModel.FK_Sys_R_User_Action_SysAction" FromRole="Sys_R_User_Action" ToRole="SysAction" />
           <NavigationProperty Name="SysUser" Relationship="DrisionMVCFrameModel.FK_Sys_R_User_Action_SysUser" FromRole="Sys_R_User_Action" ToRole="SysUser" />
-        </EntityType>
-        <EntityType Name="Sys_R_User_Group">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserID" Type="Int32" Nullable="false" />
-          <Property Name="GroupID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="SysGroup" Relationship="DrisionMVCFrameModel.FK_Sys_R_User_Group_SysGroup" FromRole="Sys_R_User_Group" ToRole="SysGroup" />
-          <NavigationProperty Name="SysUser" Relationship="DrisionMVCFrameModel.FK_Sys_R_User_Group_SysUser" FromRole="Sys_R_User_Group" ToRole="SysUser" />
         </EntityType>
         <EntityType Name="Sys_R_User_Role">
           <Key>
@@ -410,7 +290,6 @@
           <Property Name="SubTime" Type="DateTime" Nullable="false" />
           <Property Name="ActionType" Type="Int32" Nullable="false" />
           <Property Name="DelFlag" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Sys_R_Group_Action" Relationship="DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysAction" FromRole="SysAction" ToRole="Sys_R_Group_Action" />
           <NavigationProperty Name="Sys_R_Role_Action" Relationship="DrisionMVCFrameModel.FK_Sys_R_Role_Action_SysAction" FromRole="SysAction" ToRole="Sys_R_Role_Action" />
           <NavigationProperty Name="Sys_R_User_Action" Relationship="DrisionMVCFrameModel.FK_Sys_R_User_Action_SysAction" FromRole="SysAction" ToRole="Sys_R_User_Action" />
         </EntityType>
@@ -424,8 +303,6 @@
           <Property Name="GroupDescription" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="GroupType" Type="Int32" Nullable="false" />
           <Property Name="DelFlag" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Sys_R_Group_Action" Relationship="DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysGroup" FromRole="SysGroup" ToRole="Sys_R_Group_Action" />
-          <NavigationProperty Name="Sys_R_User_Group" Relationship="DrisionMVCFrameModel.FK_Sys_R_User_Group_SysGroup" FromRole="SysGroup" ToRole="Sys_R_User_Group" />
         </EntityType>
         <EntityType Name="SysRole">
           <Key>
@@ -452,33 +329,8 @@
           <Property Name="LastLoginTime" Type="DateTime" />
           <Property Name="DelFlag" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Sys_R_User_Action" Relationship="DrisionMVCFrameModel.FK_Sys_R_User_Action_SysUser" FromRole="SysUser" ToRole="Sys_R_User_Action" />
-          <NavigationProperty Name="Sys_R_User_Group" Relationship="DrisionMVCFrameModel.FK_Sys_R_User_Group_SysUser" FromRole="SysUser" ToRole="Sys_R_User_Group" />
           <NavigationProperty Name="Sys_R_User_Role" Relationship="DrisionMVCFrameModel.FK_Sys_R_User_Role_SysUser" FromRole="SysUser" ToRole="Sys_R_User_Role" />
         </EntityType>
-        <Association Name="FK_Sys_R_Group_Action_SysAction">
-          <End Role="SysAction" Type="DrisionMVCFrameModel.SysAction" Multiplicity="1" />
-          <End Role="Sys_R_Group_Action" Type="DrisionMVCFrameModel.Sys_R_Group_Action" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SysAction">
-              <PropertyRef Name="ActionID" />
-            </Principal>
-            <Dependent Role="Sys_R_Group_Action">
-              <PropertyRef Name="ActionID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sys_R_Group_Action_SysGroup">
-          <End Role="SysGroup" Type="DrisionMVCFrameModel.SysGroup" Multiplicity="1" />
-          <End Role="Sys_R_Group_Action" Type="DrisionMVCFrameModel.Sys_R_Group_Action" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SysGroup">
-              <PropertyRef Name="GroupID" />
-            </Principal>
-            <Dependent Role="Sys_R_Group_Action">
-              <PropertyRef Name="GroupID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Sys_R_Role_Action_SysAction">
           <End Role="SysAction" Type="DrisionMVCFrameModel.SysAction" Multiplicity="1" />
           <End Role="Sys_R_Role_Action" Type="DrisionMVCFrameModel.Sys_R_Role_Action" Multiplicity="*" />
@@ -527,30 +379,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Sys_R_User_Group_SysGroup">
-          <End Role="SysGroup" Type="DrisionMVCFrameModel.SysGroup" Multiplicity="1" />
-          <End Role="Sys_R_User_Group" Type="DrisionMVCFrameModel.Sys_R_User_Group" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SysGroup">
-              <PropertyRef Name="GroupID" />
-            </Principal>
-            <Dependent Role="Sys_R_User_Group">
-              <PropertyRef Name="GroupID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sys_R_User_Group_SysUser">
-          <End Role="SysUser" Type="DrisionMVCFrameModel.SysUser" Multiplicity="1" />
-          <End Role="Sys_R_User_Group" Type="DrisionMVCFrameModel.Sys_R_User_Group" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SysUser">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="Sys_R_User_Group">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Sys_R_User_Role_SysRole">
           <End Role="SysRole" Type="DrisionMVCFrameModel.SysRole" Multiplicity="1" />
           <End Role="Sys_R_User_Role" Type="DrisionMVCFrameModel.Sys_R_User_Role" Multiplicity="*" />
@@ -581,11 +409,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DrisionMVCFrameModelStoreContainer" CdmEntityContainer="DrisionMVCFrameEntities">
-          <EntitySetMapping Name="Sys_R_Group_Action"><EntityTypeMapping TypeName="DrisionMVCFrameModel.Sys_R_Group_Action"><MappingFragment StoreEntitySet="Sys_R_Group_Action">
-            <ScalarProperty Name="ID" ColumnName="ID" />
-            <ScalarProperty Name="GroupID" ColumnName="GroupID" />
-            <ScalarProperty Name="ActionID" ColumnName="ActionID" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Sys_R_Role_Action"><EntityTypeMapping TypeName="DrisionMVCFrameModel.Sys_R_Role_Action"><MappingFragment StoreEntitySet="Sys_R_Role_Action">
             <ScalarProperty Name="ID" ColumnName="ID" />
             <ScalarProperty Name="RoleID" ColumnName="RoleID" />
@@ -595,11 +418,6 @@
             <ScalarProperty Name="ID" ColumnName="ID" />
             <ScalarProperty Name="UserID" ColumnName="UserID" />
             <ScalarProperty Name="ActionID" ColumnName="ActionID" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Sys_R_User_Group"><EntityTypeMapping TypeName="DrisionMVCFrameModel.Sys_R_User_Group"><MappingFragment StoreEntitySet="Sys_R_User_Group">
-            <ScalarProperty Name="ID" ColumnName="ID" />
-            <ScalarProperty Name="UserID" ColumnName="UserID" />
-            <ScalarProperty Name="GroupID" ColumnName="GroupID" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Sys_R_User_Role"><EntityTypeMapping TypeName="DrisionMVCFrameModel.Sys_R_User_Role"><MappingFragment StoreEntitySet="Sys_R_User_Role">
             <ScalarProperty Name="ID" ColumnName="ID" />
@@ -660,38 +478,18 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="DataModel">
-        <EntityTypeShape EntityType="DrisionMVCFrameModel.Sys_R_Group_Action" Width="1.5" PointX="6" PointY="5.375" Height="1.9700325520833335" IsExpanded="true" />
+      <Diagram Name="DataModel" ZoomLevel="83">
         <EntityTypeShape EntityType="DrisionMVCFrameModel.Sys_R_Role_Action" Width="1.5" PointX="6" PointY="9.125" Height="1.9700325520833335" IsExpanded="true" />
         <EntityTypeShape EntityType="DrisionMVCFrameModel.Sys_R_User_Action" Width="1.5" PointX="3" PointY="5.25" Height="1.9700325520833326" IsExpanded="true" />
-        <EntityTypeShape EntityType="DrisionMVCFrameModel.Sys_R_User_Group" Width="1.5" PointX="3" PointY="2.25" Height="1.9700325520833331" IsExpanded="true" />
         <EntityTypeShape EntityType="DrisionMVCFrameModel.Sys_R_User_Role" Width="1.5" PointX="3" PointY="8.25" Height="1.9700325520833317" IsExpanded="true" />
         <EntityTypeShape EntityType="DrisionMVCFrameModel.SysAction" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9251310221354165" IsExpanded="true" />
         <EntityTypeShape EntityType="DrisionMVCFrameModel.SysGroup" Width="1.5" PointX="0.75" PointY="9.5" Height="2.5430916341145817" IsExpanded="true" />
         <EntityTypeShape EntityType="DrisionMVCFrameModel.SysRole" Width="1.5" PointX="0.75" PointY="13" Height="2.3520719401041674" IsExpanded="true" />
         <EntityTypeShape EntityType="DrisionMVCFrameModel.SysUser" Width="1.5" PointX="0.75" PointY="4.625" Height="3.1161507161458317" IsExpanded="true" />
-        <AssociationConnector Association="DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysAction" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="1.46875" />
-          <ConnectorPoint PointX="6.75" PointY="1.46875" />
-          <ConnectorPoint PointX="6.75" PointY="5.375" />
-        </AssociationConnector>
-        <AssociationConnector Association="DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysGroup" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="9.5265374615384619" />
-          <ConnectorPoint PointX="2.625" PointY="9.1515374615384619" />
-          <ConnectorPoint PointX="2.625" PointY="7.7200325520833335" />
-          <ConnectorPoint PointX="2.6979166666666665" PointY="7.7200325520833326" />
-          <ConnectorPoint PointX="2.8645833333333335" PointY="7.7200325520833335" />
-          <ConnectorPoint PointX="5.625" PointY="7.7200325520833335" />
-          <ConnectorPoint PointX="6" PointY="7.3450325520833335" />
-        </AssociationConnector>
         <AssociationConnector Association="DrisionMVCFrameModel.FK_Sys_R_Role_Action_SysAction" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.5" PointY="3.6751310221354165" />
-          <ConnectorPoint PointX="1.5" PointY="4.375" />
-          <ConnectorPoint PointX="2.5416666666666665" PointY="4.3749999999999982" />
-          <ConnectorPoint PointX="2.928365885416667" PointY="4.375" />
-          <ConnectorPoint PointX="5.625" PointY="4.375" />
-          <ConnectorPoint PointX="5.625" PointY="10.110016276041666" />
-          <ConnectorPoint PointX="6" PointY="10.110016276041666" />
+          <ConnectorPoint PointX="2.25" PointY="1.4687500000000002" />
+          <ConnectorPoint PointX="6.75" PointY="1.4687500000000002" />
+          <ConnectorPoint PointX="6.75" PointY="9.125" />
         </AssociationConnector>
         <AssociationConnector Association="DrisionMVCFrameModel.FK_Sys_R_Role_Action_SysRole" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="14.176035970052084" />
@@ -699,34 +497,13 @@
           <ConnectorPoint PointX="6.75" PointY="11.095032552083334" />
         </AssociationConnector>
         <AssociationConnector Association="DrisionMVCFrameModel.FK_Sys_R_User_Action_SysAction" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="3.6751310221354165" />
-          <ConnectorPoint PointX="2.625" PointY="4.0501310221354165" />
-          <ConnectorPoint PointX="2.625" PointY="6.2350162760416659" />
-          <ConnectorPoint PointX="2.6979166666666665" PointY="6.235016276041665" />
-          <ConnectorPoint PointX="2.8645833333333335" PointY="6.2350162760416659" />
-          <ConnectorPoint PointX="3" PointY="6.2350162760416659" />
+          <ConnectorPoint PointX="2.25" PointY="2.5076831640625006" />
+          <ConnectorPoint PointX="3.75" PointY="2.5076831640625006" />
+          <ConnectorPoint PointX="3.75" PointY="5.25" />
         </AssociationConnector>
         <AssociationConnector Association="DrisionMVCFrameModel.FK_Sys_R_User_Action_SysUser" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="5.6800081380208329" />
-          <ConnectorPoint PointX="2.5416666666666665" PointY="5.680008138020832" />
-          <ConnectorPoint PointX="2.8645833333333335" PointY="5.6800081380208329" />
-          <ConnectorPoint PointX="3" PointY="5.6800081380208329" />
-        </AssociationConnector>
-        <AssociationConnector Association="DrisionMVCFrameModel.FK_Sys_R_User_Group_SysGroup" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="9.508075923076925" />
-          <ConnectorPoint PointX="2.78125" PointY="8.976825923076925" />
-          <ConnectorPoint PointX="2.78125" PointY="3.2350162760416667" />
-          <ConnectorPoint PointX="3" PointY="3.2350162760416667" />
-        </AssociationConnector>
-        <AssociationConnector Association="DrisionMVCFrameModel.FK_Sys_R_User_Group_SysUser" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="4.6873066923076925" />
-          <ConnectorPoint PointX="2.4375" PointY="4.4998066923076925" />
-          <ConnectorPoint PointX="2.4375" PointY="4.7825325520833335" />
-          <ConnectorPoint PointX="2.5660744349011204" PointY="4.6539581171822118" />
-          <ConnectorPoint PointX="2.6839255650988791" PointY="4.5361069869844544" />
-          <ConnectorPoint PointX="2.7223244349011204" PointY="4.4977081171822118" />
-          <ConnectorPoint PointX="2.8401755650988791" PointY="4.3798569869844544" />
-          <ConnectorPoint PointX="3" PointY="4.2200325520833335" />
+          <ConnectorPoint PointX="2.25" PointY="6.2350162760416659" />
+          <ConnectorPoint PointX="3" PointY="6.2350162760416659" />
         </AssociationConnector>
         <AssociationConnector Association="DrisionMVCFrameModel.FK_Sys_R_User_Role_SysRole" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="13.556765485026041" />
@@ -734,13 +511,9 @@
           <ConnectorPoint PointX="3.75" PointY="10.220032552083332" />
         </AssociationConnector>
         <AssociationConnector Association="DrisionMVCFrameModel.FK_Sys_R_User_Role_SysUser" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="7.678842023838139" />
-          <ConnectorPoint PointX="2.4375" PointY="8.1161507161458317" />
-          <ConnectorPoint PointX="2.4375" PointY="7.6863471538461541" />
-          <ConnectorPoint PointX="2.5660744349011213" PointY="7.8149215887472749" />
-          <ConnectorPoint PointX="2.6839255650988791" PointY="7.9327727189450332" />
-          <ConnectorPoint PointX="2.7223244349011213" PointY="7.9711715887472741" />
-          <ConnectorPoint PointX="2.8401755650988791" PointY="8.0890227189450314" />
+          <ConnectorPoint PointX="2.25" PointY="7.5501310221354156" />
+          <ConnectorPoint PointX="2.625" PointY="7.9251310221354156" />
+          <ConnectorPoint PointX="2.625" PointY="7.8738471538461541" />
           <ConnectorPoint PointX="3.0011528461538459" PointY="8.25" />
         </AssociationConnector>
       </Diagram>

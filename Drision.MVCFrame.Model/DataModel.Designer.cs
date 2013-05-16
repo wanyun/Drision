@@ -18,14 +18,10 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM 关系源元数据
 
-[assembly: EdmRelationshipAttribute("DrisionMVCFrameModel", "FK_Sys_R_Group_Action_SysAction", "SysAction", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Drision.MVCFrame.Model.SysAction), "Sys_R_Group_Action", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Drision.MVCFrame.Model.Sys_R_Group_Action), true)]
-[assembly: EdmRelationshipAttribute("DrisionMVCFrameModel", "FK_Sys_R_Group_Action_SysGroup", "SysGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Drision.MVCFrame.Model.SysGroup), "Sys_R_Group_Action", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Drision.MVCFrame.Model.Sys_R_Group_Action), true)]
 [assembly: EdmRelationshipAttribute("DrisionMVCFrameModel", "FK_Sys_R_Role_Action_SysAction", "SysAction", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Drision.MVCFrame.Model.SysAction), "Sys_R_Role_Action", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Drision.MVCFrame.Model.Sys_R_Role_Action), true)]
 [assembly: EdmRelationshipAttribute("DrisionMVCFrameModel", "FK_Sys_R_Role_Action_SysRole", "SysRole", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Drision.MVCFrame.Model.SysRole), "Sys_R_Role_Action", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Drision.MVCFrame.Model.Sys_R_Role_Action), true)]
 [assembly: EdmRelationshipAttribute("DrisionMVCFrameModel", "FK_Sys_R_User_Action_SysAction", "SysAction", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Drision.MVCFrame.Model.SysAction), "Sys_R_User_Action", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Drision.MVCFrame.Model.Sys_R_User_Action), true)]
 [assembly: EdmRelationshipAttribute("DrisionMVCFrameModel", "FK_Sys_R_User_Action_SysUser", "SysUser", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Drision.MVCFrame.Model.SysUser), "Sys_R_User_Action", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Drision.MVCFrame.Model.Sys_R_User_Action), true)]
-[assembly: EdmRelationshipAttribute("DrisionMVCFrameModel", "FK_Sys_R_User_Group_SysGroup", "SysGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Drision.MVCFrame.Model.SysGroup), "Sys_R_User_Group", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Drision.MVCFrame.Model.Sys_R_User_Group), true)]
-[assembly: EdmRelationshipAttribute("DrisionMVCFrameModel", "FK_Sys_R_User_Group_SysUser", "SysUser", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Drision.MVCFrame.Model.SysUser), "Sys_R_User_Group", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Drision.MVCFrame.Model.Sys_R_User_Group), true)]
 [assembly: EdmRelationshipAttribute("DrisionMVCFrameModel", "FK_Sys_R_User_Role_SysRole", "SysRole", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Drision.MVCFrame.Model.SysRole), "Sys_R_User_Role", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Drision.MVCFrame.Model.Sys_R_User_Role), true)]
 [assembly: EdmRelationshipAttribute("DrisionMVCFrameModel", "FK_Sys_R_User_Role_SysUser", "SysUser", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Drision.MVCFrame.Model.SysUser), "Sys_R_User_Role", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Drision.MVCFrame.Model.Sys_R_User_Role), true)]
 
@@ -82,22 +78,6 @@ namespace Drision.MVCFrame.Model
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        public ObjectSet<Sys_R_Group_Action> Sys_R_Group_Action
-        {
-            get
-            {
-                if ((_Sys_R_Group_Action == null))
-                {
-                    _Sys_R_Group_Action = base.CreateObjectSet<Sys_R_Group_Action>("Sys_R_Group_Action");
-                }
-                return _Sys_R_Group_Action;
-            }
-        }
-        private ObjectSet<Sys_R_Group_Action> _Sys_R_Group_Action;
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
         public ObjectSet<Sys_R_Role_Action> Sys_R_Role_Action
         {
             get
@@ -126,22 +106,6 @@ namespace Drision.MVCFrame.Model
             }
         }
         private ObjectSet<Sys_R_User_Action> _Sys_R_User_Action;
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        public ObjectSet<Sys_R_User_Group> Sys_R_User_Group
-        {
-            get
-            {
-                if ((_Sys_R_User_Group == null))
-                {
-                    _Sys_R_User_Group = base.CreateObjectSet<Sys_R_User_Group>("Sys_R_User_Group");
-                }
-                return _Sys_R_User_Group;
-            }
-        }
-        private ObjectSet<Sys_R_User_Group> _Sys_R_User_Group;
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -227,14 +191,6 @@ namespace Drision.MVCFrame.Model
         #region AddTo 方法
     
         /// <summary>
-        /// 用于向 Sys_R_Group_Action EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
-        /// </summary>
-        public void AddToSys_R_Group_Action(Sys_R_Group_Action sys_R_Group_Action)
-        {
-            base.AddObject("Sys_R_Group_Action", sys_R_Group_Action);
-        }
-    
-        /// <summary>
         /// 用于向 Sys_R_Role_Action EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
         /// </summary>
         public void AddToSys_R_Role_Action(Sys_R_Role_Action sys_R_Role_Action)
@@ -248,14 +204,6 @@ namespace Drision.MVCFrame.Model
         public void AddToSys_R_User_Action(Sys_R_User_Action sys_R_User_Action)
         {
             base.AddObject("Sys_R_User_Action", sys_R_User_Action);
-        }
-    
-        /// <summary>
-        /// 用于向 Sys_R_User_Group EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
-        /// </summary>
-        public void AddToSys_R_User_Group(Sys_R_User_Group sys_R_User_Group)
-        {
-            base.AddObject("Sys_R_User_Group", sys_R_User_Group);
         }
     
         /// <summary>
@@ -305,192 +253,6 @@ namespace Drision.MVCFrame.Model
     #endregion
     
     #region 实体
-    
-    /// <summary>
-    /// 没有元数据文档可用。
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DrisionMVCFrameModel", Name="Sys_R_Group_Action")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class Sys_R_Group_Action : EntityObject
-    {
-        #region 工厂方法
-    
-        /// <summary>
-        /// 创建新的 Sys_R_Group_Action 对象。
-        /// </summary>
-        /// <param name="id">ID 属性的初始值。</param>
-        /// <param name="groupID">GroupID 属性的初始值。</param>
-        /// <param name="actionID">ActionID 属性的初始值。</param>
-        public static Sys_R_Group_Action CreateSys_R_Group_Action(global::System.Int32 id, global::System.Int32 groupID, global::System.Int32 actionID)
-        {
-            Sys_R_Group_Action sys_R_Group_Action = new Sys_R_Group_Action();
-            sys_R_Group_Action.ID = id;
-            sys_R_Group_Action.GroupID = groupID;
-            sys_R_Group_Action.ActionID = actionID;
-            return sys_R_Group_Action;
-        }
-
-        #endregion
-        #region 基元属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID
-        {
-            get
-            {
-                return _ID;
-            }
-            set
-            {
-                if (_ID != value)
-                {
-                    OnIDChanging(value);
-                    ReportPropertyChanging("ID");
-                    _ID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ID");
-                    OnIDChanged();
-                }
-            }
-        }
-        private global::System.Int32 _ID;
-        partial void OnIDChanging(global::System.Int32 value);
-        partial void OnIDChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 GroupID
-        {
-            get
-            {
-                return _GroupID;
-            }
-            set
-            {
-                OnGroupIDChanging(value);
-                ReportPropertyChanging("GroupID");
-                _GroupID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("GroupID");
-                OnGroupIDChanged();
-            }
-        }
-        private global::System.Int32 _GroupID;
-        partial void OnGroupIDChanging(global::System.Int32 value);
-        partial void OnGroupIDChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ActionID
-        {
-            get
-            {
-                return _ActionID;
-            }
-            set
-            {
-                OnActionIDChanging(value);
-                ReportPropertyChanging("ActionID");
-                _ActionID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ActionID");
-                OnActionIDChanged();
-            }
-        }
-        private global::System.Int32 _ActionID;
-        partial void OnActionIDChanging(global::System.Int32 value);
-        partial void OnActionIDChanged();
-
-        #endregion
-    
-        #region 导航属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DrisionMVCFrameModel", "FK_Sys_R_Group_Action_SysAction", "SysAction")]
-        public SysAction SysAction
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SysAction>("DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysAction", "SysAction").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SysAction>("DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysAction", "SysAction").Value = value;
-            }
-        }
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<SysAction> SysActionReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SysAction>("DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysAction", "SysAction");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SysAction>("DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysAction", "SysAction", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DrisionMVCFrameModel", "FK_Sys_R_Group_Action_SysGroup", "SysGroup")]
-        public SysGroup SysGroup
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SysGroup>("DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysGroup", "SysGroup").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SysGroup>("DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysGroup", "SysGroup").Value = value;
-            }
-        }
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<SysGroup> SysGroupReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SysGroup>("DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysGroup", "SysGroup");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SysGroup>("DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysGroup", "SysGroup", value);
-                }
-            }
-        }
-
-        #endregion
-    }
     
     /// <summary>
     /// 没有元数据文档可用。
@@ -857,192 +619,6 @@ namespace Drision.MVCFrame.Model
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SysUser>("DrisionMVCFrameModel.FK_Sys_R_User_Action_SysUser", "SysUser", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// 没有元数据文档可用。
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DrisionMVCFrameModel", Name="Sys_R_User_Group")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class Sys_R_User_Group : EntityObject
-    {
-        #region 工厂方法
-    
-        /// <summary>
-        /// 创建新的 Sys_R_User_Group 对象。
-        /// </summary>
-        /// <param name="id">ID 属性的初始值。</param>
-        /// <param name="userID">UserID 属性的初始值。</param>
-        /// <param name="groupID">GroupID 属性的初始值。</param>
-        public static Sys_R_User_Group CreateSys_R_User_Group(global::System.Int32 id, global::System.Int32 userID, global::System.Int32 groupID)
-        {
-            Sys_R_User_Group sys_R_User_Group = new Sys_R_User_Group();
-            sys_R_User_Group.ID = id;
-            sys_R_User_Group.UserID = userID;
-            sys_R_User_Group.GroupID = groupID;
-            return sys_R_User_Group;
-        }
-
-        #endregion
-        #region 基元属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID
-        {
-            get
-            {
-                return _ID;
-            }
-            set
-            {
-                if (_ID != value)
-                {
-                    OnIDChanging(value);
-                    ReportPropertyChanging("ID");
-                    _ID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ID");
-                    OnIDChanged();
-                }
-            }
-        }
-        private global::System.Int32 _ID;
-        partial void OnIDChanging(global::System.Int32 value);
-        partial void OnIDChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 UserID
-        {
-            get
-            {
-                return _UserID;
-            }
-            set
-            {
-                OnUserIDChanging(value);
-                ReportPropertyChanging("UserID");
-                _UserID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("UserID");
-                OnUserIDChanged();
-            }
-        }
-        private global::System.Int32 _UserID;
-        partial void OnUserIDChanging(global::System.Int32 value);
-        partial void OnUserIDChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 GroupID
-        {
-            get
-            {
-                return _GroupID;
-            }
-            set
-            {
-                OnGroupIDChanging(value);
-                ReportPropertyChanging("GroupID");
-                _GroupID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("GroupID");
-                OnGroupIDChanged();
-            }
-        }
-        private global::System.Int32 _GroupID;
-        partial void OnGroupIDChanging(global::System.Int32 value);
-        partial void OnGroupIDChanged();
-
-        #endregion
-    
-        #region 导航属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DrisionMVCFrameModel", "FK_Sys_R_User_Group_SysGroup", "SysGroup")]
-        public SysGroup SysGroup
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SysGroup>("DrisionMVCFrameModel.FK_Sys_R_User_Group_SysGroup", "SysGroup").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SysGroup>("DrisionMVCFrameModel.FK_Sys_R_User_Group_SysGroup", "SysGroup").Value = value;
-            }
-        }
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<SysGroup> SysGroupReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SysGroup>("DrisionMVCFrameModel.FK_Sys_R_User_Group_SysGroup", "SysGroup");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SysGroup>("DrisionMVCFrameModel.FK_Sys_R_User_Group_SysGroup", "SysGroup", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DrisionMVCFrameModel", "FK_Sys_R_User_Group_SysUser", "SysUser")]
-        public SysUser SysUser
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SysUser>("DrisionMVCFrameModel.FK_Sys_R_User_Group_SysUser", "SysUser").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SysUser>("DrisionMVCFrameModel.FK_Sys_R_User_Group_SysUser", "SysUser").Value = value;
-            }
-        }
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<SysUser> SysUserReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SysUser>("DrisionMVCFrameModel.FK_Sys_R_User_Group_SysUser", "SysUser");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SysUser>("DrisionMVCFrameModel.FK_Sys_R_User_Group_SysUser", "SysUser", value);
                 }
             }
         }
@@ -1453,28 +1029,6 @@ namespace Drision.MVCFrame.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DrisionMVCFrameModel", "FK_Sys_R_Group_Action_SysAction", "Sys_R_Group_Action")]
-        public EntityCollection<Sys_R_Group_Action> Sys_R_Group_Action
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Sys_R_Group_Action>("DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysAction", "Sys_R_Group_Action");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sys_R_Group_Action>("DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysAction", "Sys_R_Group_Action", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("DrisionMVCFrameModel", "FK_Sys_R_Role_Action_SysAction", "Sys_R_Role_Action")]
         public EntityCollection<Sys_R_Role_Action> Sys_R_Role_Action
         {
@@ -1697,53 +1251,6 @@ namespace Drision.MVCFrame.Model
 
         #endregion
     
-        #region 导航属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DrisionMVCFrameModel", "FK_Sys_R_Group_Action_SysGroup", "Sys_R_Group_Action")]
-        public EntityCollection<Sys_R_Group_Action> Sys_R_Group_Action
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Sys_R_Group_Action>("DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysGroup", "Sys_R_Group_Action");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sys_R_Group_Action>("DrisionMVCFrameModel.FK_Sys_R_Group_Action_SysGroup", "Sys_R_Group_Action", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DrisionMVCFrameModel", "FK_Sys_R_User_Group_SysGroup", "Sys_R_User_Group")]
-        public EntityCollection<Sys_R_User_Group> Sys_R_User_Group
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Sys_R_User_Group>("DrisionMVCFrameModel.FK_Sys_R_User_Group_SysGroup", "Sys_R_User_Group");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sys_R_User_Group>("DrisionMVCFrameModel.FK_Sys_R_User_Group_SysGroup", "Sys_R_User_Group", value);
-                }
-            }
-        }
-
-        #endregion
     }
     
     /// <summary>
@@ -2201,28 +1708,6 @@ namespace Drision.MVCFrame.Model
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sys_R_User_Action>("DrisionMVCFrameModel.FK_Sys_R_User_Action_SysUser", "Sys_R_User_Action", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DrisionMVCFrameModel", "FK_Sys_R_User_Group_SysUser", "Sys_R_User_Group")]
-        public EntityCollection<Sys_R_User_Group> Sys_R_User_Group
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Sys_R_User_Group>("DrisionMVCFrameModel.FK_Sys_R_User_Group_SysUser", "Sys_R_User_Group");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sys_R_User_Group>("DrisionMVCFrameModel.FK_Sys_R_User_Group_SysUser", "Sys_R_User_Group", value);
                 }
             }
         }

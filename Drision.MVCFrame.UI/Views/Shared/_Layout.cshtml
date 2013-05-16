@@ -12,10 +12,10 @@
         <h1><a href="/">White Tree</a></h1>
         <ul id="navlist">
             <li class="first"><a href="@Url.Content("~")" id="current">Home</a></li>
-            <li><a href="@Url.Content("~/User/")">用户</a></li>
-            <li><a href="@Url.Content("~/Role/")">角色</a></li>
-            <li><a href="@Url.Content("~/Action/")">菜单</a></li>
-            <li><a href="@Url.Content("~/Group/")">分组</a></li>
+            <li><a href="/User/">用户</a></li>
+            <li><a href="/Role/">角色</a></li>
+            <li><a href="/Action/">菜单</a></li>
+            <li><a href="/Group/">分组</a></li>
         </ul>        
     </div>
 
@@ -28,5 +28,32 @@
     <div id="footer">
         built with <a href="http://asp.net/mvc">ASP.NET MVC 3</a>
     </div>
+    @*<script type="text/javascript">
+
+        //当用户刷新页面触发的方法
+        $(function () {
+
+            //实现用户登录的方法
+            LodingPages();
+            //单击的时候修改验证码的方法
+           // ClickRemoveChangeCode();
+
+        });
+
+        //实现用户登录
+        function LodingPages() {
+
+            //获取单击用户登录按钮的事件
+            $("#navlist  li  a").click(function () {
+                var code = $("#navlist  li  a").attr("href");
+                $("div#main").load(code);
+                
+
+            });
+
+        }
+
+ 
+    </script>*@
 </body>
 </html>

@@ -1,0 +1,28 @@
+﻿@model Drision.MVCFrame.Model.Sys_R_Role_Action
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Sys_R_Role_Action</legend>
+
+    <div class="display-label">RoleID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RoleID)
+    </div>
+
+    <div class="display-label">ActionID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ActionID)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

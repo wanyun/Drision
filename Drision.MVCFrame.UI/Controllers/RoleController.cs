@@ -47,11 +47,8 @@ namespace Drision.MVCFrame.UI.Controllers
         [HttpPost]
         public ActionResult Create(SysRole roleInfo)
         {
-
-
             try
             {
-
                 if (ModelState.IsValid)
                 {
                     _roleInfoService.AddEntity(roleInfo);

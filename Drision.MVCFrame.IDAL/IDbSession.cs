@@ -13,13 +13,9 @@ namespace Drision.MVCFrame.IDAL
     {
 
     //----T4模板生成--- 每个表对应的实体仓储对象
-	ISys_R_Group_ActionRepository  Sys_R_Group_ActionRepository { get; }
-
 	ISys_R_Role_ActionRepository  Sys_R_Role_ActionRepository { get; }
 
 	ISys_R_User_ActionRepository  Sys_R_User_ActionRepository { get; }
-
-	ISys_R_User_GroupRepository  Sys_R_User_GroupRepository { get; }
 
 	ISys_R_User_RoleRepository  Sys_R_User_RoleRepository { get; }
 

@@ -17,15 +17,6 @@ namespace Drision.MVCFrame.EFDAL
 
     //----T4模板生成--- 每个表对应的实体仓储对象
 
-		public ISys_R_Group_ActionRepository  Sys_R_Group_ActionRepository
-        {
-            get 
-            {
-                return new Sys_R_Group_ActionRepository(); 
-            }
-        }
-
-
 		public ISys_R_Role_ActionRepository  Sys_R_Role_ActionRepository
         {
             get 
@@ -40,15 +31,6 @@ namespace Drision.MVCFrame.EFDAL
             get 
             {
                 return new Sys_R_User_ActionRepository(); 
-            }
-        }
-
-
-		public ISys_R_User_GroupRepository  Sys_R_User_GroupRepository
-        {
-            get 
-            {
-                return new Sys_R_User_GroupRepository(); 
             }
         }
 
