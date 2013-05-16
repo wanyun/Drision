@@ -59,7 +59,7 @@ namespace Drision.MVCFrame.UI.Controllers
             this.TempData["ValidateCode"] = new Guid();
 
             //判断用户输入的验证码是否正确
-            if (!sessionCode.ToLower().Equals(Code))
+            if (!sessionCode.ToLower().Equals(Code.ToLower()))
             {
                 return Content("验证码输入不正确");
             }
