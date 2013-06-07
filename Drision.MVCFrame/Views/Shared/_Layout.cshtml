@@ -1,0 +1,106 @@
+﻿@using StackExchange.Profiling
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- The styles -->
+    <link href="@Url.Content("~/Content/bootstrap/css/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/bootstrap/css/bootstrap-responsive.min.css")"  rel="stylesheet" />
+    <!-- The Script -->
+
+    <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")"  type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/bootstrap/js/jquery.cookie.js")"  type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/bootstrap/js/bootstrap.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/modernizr-1.7.min.js")" type="text/javascript"></script>
+    <!--HubSpot-->
+    <link href="@Url.Content("~/Content/HubSpot/css/messenger.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/HubSpot/css/messenger-theme-future.css")" rel="stylesheet"
+        type="text/css" />
+    <script src="@Url.Content("~/Content/HubSpot/js/messenger.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.scrollUp.min.js")" type="text/javascript"></script>
+    <!--用户自定义-->
+    <script src="@Url.Content("~/Scripts/Application.js")" type="text/javascript"></script>
+    <style type="text/css">
+        body
+        {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+        .sidebar-nav
+        {
+            padding: 9px 0;
+        }
+        select
+        {
+            width: auto;
+        }
+        #scrollUp
+        {
+            bottom: 20px;
+            right: 20px;
+            height: 38px;
+            width: 38px;
+            background: url("../../Content/Images/top.png") no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar">
+                    </span>
+                </button>
+                <a class="brand" href="#">权限Demo</a>
+                <div class="nav-collapse collapse">
+                    <p class="navbar-text pull-right">
+                        用户<a href="#" class="navbar-link">注销</a>
+                    </p>
+                    <ul class="nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="/User/Search">用户</a></li>
+                        <li><a href="/Role/">角色</a></li>
+                        <li><a href="/Action/">菜单</a></li>
+                        <li><a href="/Dept/">部门</a></li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            @{Html.RenderAction("Menu", "Action");}
+            <!--main-->
+            <div class="span9">
+                @RenderBody()
+            </div>
+        </div>
+        <!--/row-->
+        <hr />
+        <footer>
+        <p >@MiniProfiler.RenderIncludes()
+        built with <a href="http://asp.net/mvc">ASP.NET MVC 3</p>
+      </footer>
+    </div>
+    <a id="scrollUp" href="#top" title="" style="position: fixed; z-index: 2147483647;">
+    </a>
+    <script>
+        $(document).ready(function () {
+            $.scrollUp({
+                scrollName: 'scrollUp', // Element ID
+                topDistance: '300', // Distance from top before showing element (px)
+                topSpeed: 300, // Speed back to top (ms)
+                animation: 'fade', // Fade, slide, none
+                animationInSpeed: 200, // Animation in speed (ms)
+                animationOutSpeed: 200, // Animation out speed (ms)
+                scrollText: '', // Text for element
+                activeOverlay: false  // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+            });
+        });
+    </script>
+</body>
+</html>

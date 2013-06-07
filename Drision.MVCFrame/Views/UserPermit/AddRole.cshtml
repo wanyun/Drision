@@ -1,0 +1,46 @@
+﻿@model Drision.MVCFrame.Models.BaseUser
+@{
+    ViewBag.Title = "AddRole";
+}
+<h2>
+    新增用户角色</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>BaseUser</legend>
+        @Html.HiddenFor(model => model.ID)
+        <div class="display-label">
+            用户名：</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.UserName)
+        </div>
+        <div class="display-label">
+            用户昵称：</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.NickName)
+        </div>
+        <div class="editor-field">
+            @{
+    System.Text.StringBuilder sb = new System.Text.StringBuilder("<table style='width:100%'><tr>");
+    List<Drision.MVCFrame.Models.SysRole> list = ViewBag.SelectRoles as List<Drision.MVCFrame.Models.SysRole>;
+    for (int i = 0; i < list.Count; i++)
+    {
+        if (i != 0 && i % 3 == 0)
+        {
+            sb.Append("</tr><tr>");
+        }
+        sb.Append("<td><input type='checkbox' value='" + list[i].ID + "' name='selectedRoles'/>" + list[i].RoleName + "</td>");
+    }
+    sb.Append("</tr></table> ");
+ }
+            @MvcHtmlString.Create(sb.ToString())
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

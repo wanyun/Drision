@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Drision.MVCFrame.Models.SysFunction>
+<div class="span3">
+    <div class="accordion" id="accordion2">
+        @foreach (var menu in Model.Where(p => p.IsParent).Select(p => new { p.MenuName, p.ID }).Distinct())
+        {
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse@{@menu.ID}">
+                        @menu.MenuName
+                    </a>
+                </div>
+                <div id="collapse@{@menu.ID}" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <ul class="nav nav-list">
+                            @foreach (var menu2 in Model.Where(p => p.ParentFunction_Id == menu.ID))
+                            {
+                                <li><a href="@Url.Action(menu2.ActionName, menu2.ControllerName)"><i class="icon-cog">
+                                </i>@menu2.MenuName</a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <script type="text/javascript">
+        $("#accordion2").on("shown", function () {
+            $.cookie("menu", $(this).find(".in").prev().text(), { path: '/' });
+        });
+        if ($.cookie("menu") != null) {
+            $("#accordion2 .accordion-heading").each(function () {
+                if ($(this).text() == $.cookie("menu")) {
+                    $(this).next().addClass("in");
+                }
+            });
+        }
+        
+    </script>
+</div>
+@*<ul class="nav nav-list">
+               <li class="nav-header">后台菜单</li>
+            @foreach (var menu in Model.Select(p => p.ControllerName).Distinct())
+            {
+                <li>
+                    <ul>
+                        @foreach (var menu2 in Model.Where(p => p.ControllerName == menu))
+                        {
+                            <li><a href="@Url.Action(menu2.ActionName, menu2.ControllerName)"><i class="icon-cog">
+                            </i>@menu2.MenuName</a></li>
+            
+                        }
+                    </ul>
+                </li>
+            }
+        </ul>*@
+<!--/.well -->
+<!--/span-->
+@*<div id="firstpane" class="menu_list">
+    @foreach (var menu in Model.Select(p => p.ControllerName).Distinct())
+    { 
+        <p class="menu_head">@menu</p>
+        <div class="menu_body">
+            
+                <a href="@Url.Action(menu2.ActionName, menu2.ControllerName)">@menu2.MenuName</a>
+            }
+        </div>
+    }
+</div>
+<script type="text/javascript">
+    $("#firstpane p.menu_head").click(function () {
+        $(this).css({ backgroundImage: "url(down.png)" }).next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+        $(this).siblings().css({ backgroundImage: "url(left.png)" });
+        $.cookie("menu", $(this).text());
+    });
+    if ($.cookie("menu") != null) {
+        $("#firstpane p.menu_head:contains('" + $.cookie("menu") + "')").next("div.menu_body").slideToggle(0);
+    }
+</script>
+*@

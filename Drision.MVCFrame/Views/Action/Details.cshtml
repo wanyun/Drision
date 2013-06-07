@@ -1,0 +1,28 @@
+﻿@model Drision.MVCFrame.Models.SysFunction
+@{
+    ViewBag.Title = "Action详情";
+}
+<h2>
+    Action详情</h2>
+<fieldset>
+    <legend>Action详情</legend>
+    <div class="display-label">
+        Controller名称:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ControllerName)
+    </div>
+    <div class="display-label">
+        Action名称:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ActionName)
+    </div>
+    <div class="display-label">
+        菜单名称:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MenuName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("返回Action列表", "Index")
+</p>

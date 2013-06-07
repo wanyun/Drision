@@ -1,0 +1,68 @@
+﻿@model Drision.MVCFrame.Models.SysFunction
+@{
+    ViewBag.Title = "Action新增";
+}
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>新增菜单</legend>
+        <div class="editor-label">
+            Controller名称：
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.ControllerName, (SelectList)ViewBag.ControlNames, new { id = "controller", @class = "span2" })
+        </div>
+        <script type="text/javascript">
+            $("#controller").change(function () {
+                $("#action").empty();
+                $.get("@Url.Action("GetActions")",{controlName:$(this).val()},function(data){
+                    for(var i = 0;i<data.length;i++){
+                        $("#action").append("<option>"+data[i]+"</option>");
+                    }
+                })
+            });
+            function IsParentMenu(){
+                if($("#IsParent").attr("checked")){
+                    $("#controller").attr("disabled", true);
+                    $("#action").attr("disabled", true);
+                    $("#ParentFunction_Id").val("").attr("disabled", true);
+                }
+                else{
+                    $("#controller").removeAttr("disabled");
+                    $("#action").removeAttr("disabled");
+                    $("#ParentFunction_Id").removeAttr("disabled");
+                }
+            }
+        </script>
+        <div class="editor-label">
+            Action名称：
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.ActionName, (SelectList)ViewBag.ActionNames, new { id = "action", @class = "span2" })
+        </div>
+        <div class="editor-label">
+            菜单名称：
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MenuName)
+        </div>
+        <div class="editor-label">
+            是否为一级菜单：
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(model => model.IsParent)
+        </div>
+        <div class="editor-label">
+            选择一级菜单：
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.ParentFunction_Id, (SelectList)ViewBag.ParentFunc, "请选择")
+        </div>
+        <p>
+            <input type="submit" class="btn btn-primary" value="保存" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("返回Action列表", "Index")
+</div>

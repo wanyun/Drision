@@ -1,0 +1,24 @@
+﻿@model Drision.MVCFrame.Models.SysRole
+@{
+    ViewBag.Title = "角色详情";
+}
+<h2>
+    角色详情</h2>
+<fieldset>
+    <legend>角色详情</legend>
+    <div class="display-label">
+        角色名称： @Html.DisplayFor(model => model.RoleName)</div>
+    <br />
+    <div class="display-label">
+        角色描述：</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RoleDescription)
+    </div>
+    <br />
+    <div class="display-label">
+        排序：@Html.DisplayFor(model => model.RoleOrder)</div>
+</fieldset>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("返回角色列表", "Index")
+</p>

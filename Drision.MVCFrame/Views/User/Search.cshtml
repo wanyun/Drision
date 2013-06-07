@@ -1,0 +1,156 @@
+﻿@model PagedList<Drision.MVCFrame.Models.BaseUser>
+@{
+    ViewBag.Title = "用户列表";
+    Drision.MVCFrame.Models.SysFunction[] actions = ViewBag.currentUserAction;
+}
+<script type="text/javascript">
+    $(function () {
+        // Document.ready -> link up remove event handler
+        $(".RemoveLink").click(function () {
+
+            $._messengerDefaults = {
+                extraClasses: 'messenger-fixed messenger-theme-future messenger-on-bottom messenger-on-left'
+            }
+            // Get the id from the link
+            var userToDelete = $(this).attr("data-id");
+
+            if (userToDelete != '') {
+
+                // Perform the ajax post
+                $.post("/User/Delete", { "id": userToDelete },
+                    function (data) {
+                        // Successful requests get here
+                        // Update the page elements
+                        if (data.ItemCount == 1) {
+                            $('#row-' + data.DeleteId).fadeOut('slow');
+                            $.globalMessenger().post(data.Message);
+                        }
+                        else {
+
+                            $.globalMessenger().post({
+                                message: data.Message,
+                                type: 'error',
+                                showCloseButton: true
+                            });
+                        }
+                        //                        $('#update-message').text(data.Message);
+                    });
+            }
+        });
+
+    });
+</script>
+<div class="row-fluid">
+    <div class="row-fluid">
+        <ul class="breadcrumb">
+            <li><a href="">首页</a> <span class="divider">/</span></li>
+            <li><a href="User/Search">用户信息</a> <span class="divider">/</span></li>
+            <li class="active">查询</li>
+        </ul>
+    </div>
+    <div class="page-header">
+        <h2>
+            用户查询</h2>
+    </div>
+    <div class="bs-docs-grid">
+        <div class="row-fluid show-grid">
+        </div>
+    </div>
+    @using (Html.BeginForm())
+    {
+        if (Html.VisibleByAction(actions, "User", "Search"))
+        {
+        <div class="row-fluid show-grid">
+            <sapn>
+                查找用户：</sapn>
+            @Html.TextBox("SearchString", Request.Form["SearchString"], new { @class = "input-medium search-query" })
+            <button type="submit" class="btn btn-primary">
+                <i class="icon-search icon-white"></i>查询</button>
+        </div>
+        
+        }
+    }
+    @if (Html.VisibleByAction(actions, "User", "Create"))
+    {
+        <div class="row-fluid show-grid">
+            <a href="@Url.Action("Create", "User")" class="btn  btn-primary"><i class="icon-plus icon-white"></i>
+                添加用户</a>
+        </div>
+        <br />
+    }
+    <table class="table table-bordered  table-hover">
+        <tr>
+            <th>
+                用户名
+            </th>
+            <th>
+                昵称
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                @Html.ActionLink("创建时间", "Search", new { sortOrder = ViewBag.DateSortParm })
+            </th>
+            <th>
+                最新登录时间
+            </th>
+            <th>
+                操作
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr id="row-@item.ID">
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NickName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastLoginTime)
+                </td>
+                <td>
+                    @if (Html.VisibleByAction(actions, "User", "Details"))
+                    {
+                        <a href="@Url.Action("Details", "User", new { id = item.ID })" class="btn btn-small btn-info"  ><i class="icon-info-sign icon-white">
+                        </i>详情</a>
+                       
+                    }
+                    &nbsp;
+                    @if (Html.VisibleByAction(actions, "User", "Edit"))
+                    {
+                        <a href="@Url.Action("Edit", "User", new { id = item.ID })" class="btn btn-small btn-info"  ><i class="icon-edit icon-white">
+                        </i>编辑</a>
+                      
+                    }
+                    &nbsp;
+                    @if (Html.VisibleByAction(actions, "User", "Delete"))
+                    {
+
+                        <a href="@Url.Action("Delete", "User", new { id = item.ID })" class="RemoveLink btn btn-small btn-danger" data-id="@item.ID" ><i class="icon-trash icon-white">
+                        </i>删除</a>
+                    }
+                    &nbsp;
+                    @if (Html.VisibleByAction(actions, "UserPermit", "EditRole"))
+                    {
+                        <a href="@Url.Action("EditRole", "UserPermit", new { id = item.ID })" class="btn btn-small btn-info"  ><i class="icon-user icon-white">
+                        </i>角色</a>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="control-group">
+        <span>共有 @Model.TotalItemCount 条记录 @Model.CurrentPageIndex/@Model.TotalPageCount
+        </span>
+        @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "page", ShowPageIndexBox = true, PageIndexBoxType = PageIndexBoxType.TextBox, PageIndexBoxWrapperFormatString = "{0}" }, "Default", new { sortOrder = ViewBag.DateSortParm, searchString = ViewBag.Filter })
+    </div>
+</div>

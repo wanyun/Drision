@@ -1,0 +1,51 @@
+﻿@model Drision.MVCFrame.Models.SysRole
+@{
+    ViewBag.Title = "EditAction";
+}
+<h2>
+    角色权限编辑</h2>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>SysRole</legend>
+        @Html.HiddenFor(model => model.ID)@Html.HiddenFor(model => model.ID)
+        <div class="display-label">
+            角色名称： @Html.DisplayFor(model => model.RoleName)</div>
+        <br />
+        <div class="display-label">
+            角色描述：</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.RoleDescription)
+        </div>
+        @{
+    System.Text.StringBuilder sb = new System.Text.StringBuilder("<table style='width:100%'>");
+    List<Drision.MVCFrame.Models.SysFunction> list = ViewBag.SelectActions as List<Drision.MVCFrame.Models.SysFunction>;
+    if (list != null)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            string IsSelect = string.Empty;
+            if (Model.SysFunctions.Contains(list[i]))
+            {
+                IsSelect = "checked='checked'";
+            }
+            sb.Append("<tr><td><input type='checkbox' value='" + list[i].ID + "'  " + IsSelect + "  name='SelectActions'/> Controller:" + list[i].ControllerName + " Action:" + list[i].ActionName + " 名称：" + list[i].MenuName + "</td></tr>");
+        }
+    }
+    else {
+        sb.Append("<tr><td></td></tr> ");
+    }
+    sb.Append("</table> ");
+ }
+            @MvcHtmlString.Create(sb.ToString())
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

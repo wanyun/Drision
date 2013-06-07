@@ -1,0 +1,42 @@
+﻿@model Drision.MVCFrame.Models.BaseUser
+@{
+    ViewBag.Title = "新增用户Action";
+}
+<h2>
+    新增用户Action</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>BaseUser</legend>
+        @Html.HiddenFor(model => model.ID)
+        <div class="display-label">
+            用户名：</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.UserName)
+        </div>
+        <div class="display-label">
+            用户昵称：</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.NickName)
+        </div>
+        <div class="editor-field">
+            @{
+    System.Text.StringBuilder sb = new System.Text.StringBuilder("<table style='width:100%'>");
+    List<Drision.MVCFrame.Models.SysFunction> list = ViewBag.SelectActions as List<Drision.MVCFrame.Models.SysFunction>;
+    for (int i = 0; i < list.Count; i++)
+    {
+        sb.Append("<tr><td><input type='checkbox' value='" + list[i].ID + "' name='selectActions'/> Controller:" + list[i].ControllerName + " Action:" + list[i].ActionName + " 名称：" + list[i].MenuName + "</td></tr>");
+    }
+    sb.Append("</table> ");
+            }
+            @MvcHtmlString.Create(sb.ToString())
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

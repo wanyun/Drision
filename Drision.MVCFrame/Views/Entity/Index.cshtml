@@ -1,0 +1,76 @@
+﻿@model Drision.MVCFrame.Models.SysEntity_SysRole[]
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row-fluid">
+    <div class="span12">
+        <h2>
+            选择角色</h2>
+    </div>
+    <div class="span12">
+        @using (Html.BeginForm())
+        {
+            <p>
+                @Html.DropDownList("roleId", (SelectList)ViewBag.Roles, new { id = "Role" })
+                <script type="text/javascript">
+    $("#Role").change(function () {
+        window.location = "@Url.Action("Index", "Entity")?roleId="+$(this).val();
+    });
+                </script>
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            实体表
+                        </th>
+                        <th>
+                            添加权限
+                        </th>
+                        <th>
+                            删除权限
+                        </th>
+                        <th>
+                            修改权限
+                        </th>
+                        <th>
+                            查询权限
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count(); i++)
+                    {@Html.HiddenFor(p => p[i].SysEntity.ID)
+                        <tr>
+                            <td>@Model[i].SysEntity.ModelName@(@Model[i].SysEntity.EntityName)
+                            </td>
+                            <td>@Html.DropDownListFor(p => p[i].Add, new SelectList(ViewBag.temp, "Value", "Text", Model[i].Add))
+                            </td>
+                            <td>@Html.DropDownListFor(p => p[i].Delete, new SelectList(ViewBag.temp, "Value", "Text", Model[i].Delete))
+                            </td>
+                            <td>@Html.DropDownListFor(p => p[i].Update, new SelectList(ViewBag.temp, "Value", "Text", Model[i].Update))
+                            </td>
+                            <td>@Html.DropDownListFor(p => p[i].Search, new SelectList(ViewBag.temp, "Value", "Text", Model[i].Search))
+                            </td>
+                            <td>@Html.DropDownList("t", new SelectList(ViewBag.temp, "Value", "Text"), "请选择")
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <input type="submit" value="保存" />
+        }
+        <script type="text/javascript">
+            $("select[name='t']").change(function () {
+                var t = $(this).children("option:contains('请选择')");
+                if (t != null) {
+                    t.remove();
+                }
+                $(this).parent().parent().find("select").val($(this).val());
+            });
+        </script>
+    </div>
+</div>

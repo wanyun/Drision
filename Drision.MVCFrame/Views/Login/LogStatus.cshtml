@@ -1,0 +1,28 @@
+﻿@model Drision.MVCFrame.Models.BaseUser
+@if(Model!=null)
+     {      
+    <p>用户名：@Model.UserName <a href="#" class="Logout" data-id="@Model.ID" >注销</a></p>
+}
+<script type="text/javascript">
+    $(function () {
+        // Document.ready -> link up remove event handler
+        $(".Logout").click(function () {
+            // Get the id from the link
+            var userToLogout = $(this).attr("data-id");
+
+            if (userToLogout != '') {
+
+                // Perform the ajax post
+                $.post("/Login/Logout", { "id": userToLogout },
+                    function (data) {
+                        if (data == "OK") {
+                            window.location.href = "/Login/Index";
+                        } else {
+                            alert(data);
+                        }
+                    });
+            }
+        });
+
+    });
+</script>

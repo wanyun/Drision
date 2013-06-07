@@ -1,0 +1,98 @@
+﻿@model Drision.MVCFrame.Models.BaseUser
+@{
+    ViewBag.Title = "EditRole";
+}
+<!--icheck plugin-->
+<link href="@Url.Content("~/Content/iCheck/skins/square/orange.css")"  rel="stylesheet" />
+<script src="@Url.Content("~/Content/iCheck/jquery.icheck.js")" type="text/javascript"></script>
+<style type="text/css">
+    .role-section ul
+    {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .role-section h4
+    {
+        padding-bottom: 10px;
+    }
+    
+    .role-section .list
+    {
+        float: left;
+        padding-right: 60px;
+    }
+    .role-section .list li
+    {
+        position: relative;
+        padding-bottom: 15px;
+        padding-left: 42px;
+    }
+    .role-section label
+    {
+        cursor: pointer;
+    }
+    .icheckbox_square, .icheckbox_square-red, .icheckbox_square-green, .icheckbox_square-blue, .icheckbox_square-aero, .icheckbox_square-grey, .icheckbox_square-orange, .icheckbox_square-yellow, .icheckbox_square-pink, .icheckbox_square-purple, .iradio_square, .iradio_square-red, .iradio_square-green, .iradio_square-blue, .iradio_square-aero, .iradio_square-grey, .iradio_square-orange, .iradio_square-yellow, .iradio_square-pink, .iradio_square-purple
+    {
+        position: absolute;
+        top: -1px;
+        left: 0;
+    }
+</style>
+<div class="row-fluid show-grid">
+    <ul class="pager">
+        <li class="previous"><a href="/User/Search/">&larr; 回到用户页面</a> </li>
+    </ul>
+</div>
+<div class="row-fluid show-grid">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>用户角色分配</legend>
+            @Html.HiddenFor(model => model.ID)
+            <h5>
+                用户名：@Html.DisplayFor(model => model.UserName)
+            </h5>
+            @{
+        System.Text.StringBuilder sb = new System.Text.StringBuilder("<div class=\"role-section\"><h5>用户角色</h5>");
+        List<Drision.MVCFrame.Models.SysRole> list = ViewBag.SelectRoles as List<Drision.MVCFrame.Models.SysRole>;
+        sb.Append("<ul class=\"list\"> ");
+        if (list != null)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+
+
+                string IsSelect = string.Empty;
+                if (Model.SysRoles.Contains(list[i]))
+                {
+                    IsSelect = "checked='checked'";
+                }
+                sb.Append("<li><input type='checkbox' id='role_" + list[i].ID + "'  value='" + list[i].ID + "'  " + IsSelect + "    name='selectedRoles'/><label for='role_" + list[i].ID + "' >" + list[i].RoleName + "</label></li>");
+            }
+        }
+        else
+        {
+            sb.Append("无角色信息！！！ ");
+        }
+        sb.Append("</ul> ");
+        sb.Append("</div> ");
+            }
+            @MvcHtmlString.Create(sb.ToString())
+        </fieldset>
+        <div class="controls">
+            <input type="submit" class="btn  btn-warning" value="保存" />
+        </div>
+    }
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-orange',
+            radioClass: 'iradio_square-orange',
+            increaseArea: '20%' // optional
+        });
+    });
+</script>

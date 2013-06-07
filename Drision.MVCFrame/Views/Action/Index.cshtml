@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Drision.MVCFrame.Models.SysFunction>
+@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript">
+    $(function () {
+        // Document.ready -> link up remove event handler
+        $(".RemoveLink").click(function () {
+            // Get the id from the link
+            var userToDelete = $(this).attr("data-id");
+            if (userToDelete != '') {
+                // Perform the ajax post
+                $.post("/Action/Delete", { "id": userToDelete },
+                    function (data) {
+                        // Successful requests get here
+                        // Update the page elements
+                        if (data.ItemCount == 1) {
+                            $('#row-' + data.DeleteId).fadeOut('slow');
+                        }
+                        $('#update-message').text(data.Message);
+                    });
+            }
+        });
+
+    });
+</script>
+<div class="row-fluid">
+<h2>
+    Action列表</h2>
+<p class="button">
+    @Html.ActionLink("添加菜>>", "Create")
+</p>
+<div id="update-message">
+</div>
+<table class="table table-bordered  table-hover">
+    <tr>
+        <th>
+            Controller名称
+        </th>
+        <th>
+            Action名称
+        </th>
+        <th>
+            菜单名称
+        </th>
+        <th>
+            是否一级菜单
+        </th>
+        <th>
+            操作
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr id="row-@item.ID">
+            <td>
+                @Html.DisplayFor(modelItem => item.ControllerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MenuName)
+            </td>
+            <td>
+                @(item.IsParent ? "是" : "否")
+            </td>
+            <td>
+                @Html.ActionLink("详情", "Details", new { id = item.ID }) |
+                @Html.ActionLink("编辑", "Edit", new { id = item.ID }) | <a href="#" class="RemoveLink" data-id="@item.ID">
+                    删除</a>
+            </td>
+        </tr>
+    }
+</table>
+</div>
